@@ -31,7 +31,7 @@ jobs:
 
             - name: run tests
               run: |
-               python -m unittest.py
+               python -m unittest discover
 
 
 ## Only for CML specfication code
