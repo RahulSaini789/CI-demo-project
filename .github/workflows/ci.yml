@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+on:
+    push: 
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/Checkout@v3
+
+            
+            - name: Set up python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: 3.11
+
+            
+            - name: Install dependences
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+
+            - name: run main file
+              run: |
+                python main.py
+
+            - name: run tests
+              run: |
+               python -m unittest.py
+
+
+## Only for CML specfication code
+            - name: Create CML report
+              env:
+                  REPO_TOKEN: ${{ secrets.my_github_token }}
+              run: |
+
+
+                echo "# First Line of our report" >> report.md
+                echo "## bar Plots" >> report.md
+                echo '![](./bars.png "Bar plot")' >> report.md
+                echo "## Line Plots" >> report.md
+                echo '![](./lines.png "Line plot")' >> report.md
+
+                cml commit create report.md
+
