@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-fig, axx = plt.subplots()
+fig, ax = plt.subplots()
 
 fruits = ['apple', 'blueberry', 'orange', 'cherry']
 counts = [140, 10, 30, 45]
