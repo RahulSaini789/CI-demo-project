@@ -7,7 +7,7 @@ counts = [140, 10, 30, 45]
 bar_labels = ['red', 'green', '_red', 'orange']
 bar_colors = ['tab:blue', 'tab:orange','tab:red','tab:red']
 
-ax,bar(fruits, counts, label=bar_labels, color=bar_colors)
+ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
 
 ax.set_ylabel('frult supply')
 ax.set_title('Fruit supply by kind and color')
