@@ -29,9 +29,6 @@ jobs:
         run: |
           python -m unittest discover
 
-      - name: Install cml
-        run: pip install cml
-
       ## Only for CML specification code
       - name: Create CML report
         env:
